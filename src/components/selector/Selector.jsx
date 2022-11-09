@@ -6,9 +6,9 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import SearchIcon from '@mui/icons-material/Search';
 
 
-const Selector = ({selector,defaultValue,settype}) => {
+const Selector = ({selector,settype,valuetypes}) => {
     const [type, setType] = React.useState(0);
-
+    let i=-10;
   const handleChange = (event: SelectChangeEvent) => {
     if(event.target.value===0) settype("Popular");
     else if(event.target.value===10) settype("Minimalist")
@@ -30,12 +30,10 @@ const Selector = ({selector,defaultValue,settype}) => {
                     disableUnderline
                     style={{color:"#000", fontSize:16}}
                     >
-                    <MenuItem value={0}>
-                    {defaultValue}
-                    </MenuItem>
-                    <MenuItem value={10}>Minimalist</MenuItem>
-                    <MenuItem value={20}>Classical</MenuItem>
-                    <MenuItem value={30}>Modern</MenuItem>
+                    {valuetypes.map(value=>{
+                        i=i+10
+                    return <MenuItem key={value[0]} value={i}>{value}</MenuItem>
+                    })}
                     </Select>
                 </FormControl>
                 {selector==="Price Range"?<div className='w-full flex flex-row-reverse px-10 py-4'><button className='md:px-3 md:py-1 p-3 bg-blue-500 rounded-full md:rounded-xl'>

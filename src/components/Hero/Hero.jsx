@@ -3,15 +3,15 @@ import Selector from '../selector/Selector';
     const selectorType=[{
         id:1,
         name:"Location",
-        defaultValue:"Jakarta,Indonesia",
+        type:["Jakarta,Indonesia"]
     },{
         id:2,
         name:"Property Type",
-        defaultValue:"Popular",
+        type:["Popular","Minimalist","Clasic","Modern"]
     },{
         id:3,
         name:"Price Range",
-        defaultValue:"Rp. 2000K- Rp. 5000K "
+        type:["Rp. 2000K- Rp. 5000K"]
     }]
 const Hero = ({settype}) => {
     const [type, setType] = useState("Popular");
@@ -29,8 +29,8 @@ const Hero = ({settype}) => {
                 <div className='flex flex-col gap-12 items-center md:items-start'>
                     <div className='bg-white rounded-md md:flex'>               
                     {
-                        selectorType.map(({id,name,defaultValue})=>
-                        <Selector  key={id} settype={setType} selector={name} defaultValue={defaultValue}/>)
+                        selectorType.map(({id,name,type})=>
+                        <Selector  key={id} settype={setType} selector={name} valuetypes={type}/>)
                     }
                     </div>
                     <div className='w-full flex gap-6 sm:gap-14'>

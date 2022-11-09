@@ -118,7 +118,7 @@ export default function Page2({type}) {
                 <Categories appearance="subtle" active={active} onSelect={setActive}/>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 justify-self-center max-w-7xl pb-12 sm:px-8'>
-                {propertyData?.map(({img,name,address,cost})=><Properties propertyname={name} address={address} cost={cost} img={img}/>)}
+                {propertyData?.map(({img,name,address,cost})=><Properties key={img} propertyname={name} address={address} cost={cost} img={img}/>)}
             </div>
         </div>
     </div>
